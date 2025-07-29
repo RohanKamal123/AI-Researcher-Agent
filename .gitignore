@@ -1,0 +1,23 @@
+    # Python
+    __pycache__/
+    *.pyc
+    *.pyo
+    *.pyd
+    .Python/
+    env/
+    venv/
+    .venv/
+    # End of Python
+
+    # Environment variables
+    .env
+    .flaskenv
+
+    # IDE-specific files
+    .vscode/
+    .idea/
+
+    # Operating System files
+    .DS_Store
+    Thumbs.db
+    
