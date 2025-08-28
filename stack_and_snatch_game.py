@@ -279,77 +279,77 @@ def render_player_character():
     if is_game_finished:
         glRotatef(90, 1, 0, 0)
 
-    # Main body
+    # Main body - increased from 25 to 35
     glColor3f(0.6, 0.4, 0.1)
-    create_spherical_object(25, 20, 20)
+    create_spherical_object(35, 20, 20)
 
     # Head section
     glPushMatrix()
-    glTranslatef(0, 0, 30)
+    glTranslatef(0, 0, 42)  # Increased from 30 to 42
     glColor3f(0.6, 0.4, 0.1)
-    create_spherical_object(15, 20, 20)
+    create_spherical_object(21, 20, 20)  # Increased from 15 to 21
 
     # Facial features
     glColor3f(0.9, 0.8, 0.6)
-    glTranslatef(0, -10, 0)
-    create_spherical_object(12, 20, 20)
+    glTranslatef(0, -14, 0)  # Increased from -10 to -14
+    create_spherical_object(17, 20, 20)  # Increased from 12 to 17
 
     # Eyes
     glColor3f(0, 0, 0)
-    glTranslatef(-5, 0, 5)
-    create_spherical_object(3, 10, 10)
-    glTranslatef(10, 0, 0)
-    create_spherical_object(3, 10, 10)
+    glTranslatef(-7, 0, 7)  # Increased from -5 to -7
+    create_spherical_object(4, 10, 10)  # Increased from 3 to 4
+    glTranslatef(14, 0, 0)  # Increased from 10 to 14
+    create_spherical_object(4, 10, 10)  # Increased from 3 to 4
 
     # Mouth
     glColor3f(0.5, 0.2, 0.2)
-    glTranslatef(-5, -5, -5)
+    glTranslatef(-7, -7, -7)  # Increased from -5 to -7
     glScalef(1, 0.5, 0.5)
-    create_spherical_object(5, 10, 10)
+    create_spherical_object(7, 10, 10)  # Increased from 5 to 7
     glPopMatrix()
 
     # Arms
     glPushMatrix()
     glColor3f(0.6, 0.4, 0.1)
-    glTranslatef(25, 0, 10)
+    glTranslatef(35, 0, 14)  # Increased from 25 to 35, 10 to 14
     glRotatef(90, 0, 1, 0)
-    gluCylinder(gluNewQuadric(), 8, 5, 30, 10, 10)
+    gluCylinder(gluNewQuadric(), 11, 7, 42, 10, 10)  # Increased from 8,5,30 to 11,7,42
     glPopMatrix()
 
     glPushMatrix()
     glColor3f(0.6, 0.4, 0.1)
-    glTranslatef(-25, 0, 10)
+    glTranslatef(-35, 0, 14)  # Increased from -25 to -35, 10 to 14
     glRotatef(-90, 0, 1, 0)
-    gluCylinder(gluNewQuadric(), 8, 5, 30, 10, 10)
+    gluCylinder(gluNewQuadric(), 11, 7, 42, 10, 10)  # Increased from 8,5,30 to 11,7,42
     glPopMatrix()
 
     # Legs
     glPushMatrix()
     glColor3f(0.6, 0.4, 0.1)
-    glTranslatef(10, 0, -25)
+    glTranslatef(14, 0, -35)  # Increased from 10 to 14, -25 to -35
     glRotatef(90, 1, 0, 0)
-    gluCylinder(gluNewQuadric(), 8, 5, 25, 10, 10)
+    gluCylinder(gluNewQuadric(), 11, 7, 35, 10, 10)  # Increased from 8,5,25 to 11,7,35
     glPopMatrix()
 
     glPushMatrix()
     glColor3f(0.6, 0.4, 0.1)
-    glTranslatef(-10, 0, -25)
+    glTranslatef(-14, 0, -35)  # Increased from -10 to -14, -25 to -35
     glRotatef(90, 1, 0, 0)
-    gluCylinder(gluNewQuadric(), 8, 5, 25, 10, 10)
+    gluCylinder(gluNewQuadric(), 11, 7, 35, 10, 10)  # Increased from 8,5,25 to 11,7,35
     glPopMatrix()
 
     # Tail
     glPushMatrix()
     glColor3f(0.6, 0.4, 0.1)
-    glTranslatef(0, 20, 0)
+    glTranslatef(0, 28, 0)  # Increased from 20 to 28
     glRotatef(30, 1, 0, 0)
-    gluCylinder(gluNewQuadric(), 5, 3, 30, 10, 10)
+    gluCylinder(gluNewQuadric(), 7, 4, 42, 10, 10)  # Increased from 5,3,30 to 7,4,42
     glPopMatrix()
 
     # Protection shield
     if has_protection or god_mode_active:
         glColor4f(0.3, 0.6, 1.0, 0.5)
-        create_spherical_object(35, 20, 20)
+        create_spherical_object(49, 20, 20)  # Increased from 35 to 49
 
     glPopMatrix()
 
