@@ -1483,10 +1483,17 @@ def handle_input(key, x, y):
 
         return
 
-    # Movement handling
+    # Movement handling - calculate movement relative to character rotation
+    rotation_radians = math.radians(character_rotation)
+    forward_x = -math.sin(rotation_radians)
+    forward_y = -math.cos(rotation_radians)
+    right_x = math.cos(rotation_radians)
+    right_y = -math.sin(rotation_radians)
+
     if key == b'w':
-        new_x = character_location[0]
-        new_y = character_location[1] + movement_speed
+        # Move forward relative to character rotation
+        new_x = character_location[0] + forward_x * movement_speed
+        new_y = character_location[1] + forward_y * movement_speed
 
         if min_boundary <= new_x <= max_boundary and min_boundary <= new_y <= max_boundary:
             character_location[0] = new_x
@@ -1500,8 +1507,9 @@ def handle_input(key, x, y):
                         upward_velocity = 0
 
     elif key == b's':
-        new_x = character_location[0]
-        new_y = character_location[1] - movement_speed
+        # Move backward relative to character rotation
+        new_x = character_location[0] - forward_x * movement_speed
+        new_y = character_location[1] - forward_y * movement_speed
         if min_boundary <= new_x <= max_boundary and min_boundary <= new_y <= max_boundary:
             character_location[0] = new_x
             character_location[1] = new_y
@@ -1514,8 +1522,9 @@ def handle_input(key, x, y):
                         upward_velocity = 0
 
     elif key == b'a':
-        new_x = character_location[0] - movement_speed
-        new_y = character_location[1]
+        # Move left relative to character rotation
+        new_x = character_location[0] - right_x * movement_speed
+        new_y = character_location[1] - right_y * movement_speed
         if min_boundary <= new_x <= max_boundary and min_boundary <= new_y <= max_boundary:
             character_location[0] = new_x
             character_location[1] = new_y
@@ -1528,8 +1537,9 @@ def handle_input(key, x, y):
                         upward_velocity = 0
 
     elif key == b'd':
-        new_x = character_location[0] + movement_speed
-        new_y = character_location[1]
+        # Move right relative to character rotation
+        new_x = character_location[0] + right_x * movement_speed
+        new_y = character_location[1] + right_y * movement_speed
         if min_boundary <= new_x <= max_boundary and min_boundary <= new_y <= max_boundary:
             character_location[0] = new_x
             character_location[1] = new_y
